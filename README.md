@@ -46,6 +46,7 @@ Create a `config.json` file in the root directory with the following structure:
 - `/suggest create <suggestion>`: Creates a new suggestion in the specified channel.
 - `/suggest accept <message_id>`: Marks a suggestion as accepted and updates the message.
 - `/suggest deny <message_id>`: Marks a suggestion as denied and updates the message.
+- `/help` & `/botinfo`: Shows basic information about the bot.
 
 ### Reactions and Updates
 - **When a suggestion is created**: 
