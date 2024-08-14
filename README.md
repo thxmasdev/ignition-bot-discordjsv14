@@ -61,6 +61,6 @@ Users can only submit a suggestion every 30 minutes. If a user tries to submit m
     <a href="https://discord.gg/yDqmpM3XtM"><img src="https://img.shields.io/badge/-Join%20My%20Discord%20Server-7289DA?style=for-the-badge&logo=discord&logoColor=white" height="40"/></a>
 </p>
 
-## 👤 Creator - Credit
+## 👤 Creator - Credit`s
 
 - **Developer:** thxmasdev
