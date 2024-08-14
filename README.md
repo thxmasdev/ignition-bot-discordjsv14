@@ -41,19 +41,6 @@ Create a `config.json` file in the root directory with the following structure:
     node index.js
     ```
 
-## 🔧 Configuration
-
-Edit a `config.json` file in the root directory with the following structure:
-
-```json
-{
-    "token": "The bot's token from the Discord Developer Portal.",
-    "clientId": "The bot's client ID for registering slash commands.",
-    "guildId": "The ID of the Discord server where the bot will operate.",
-    "channelId": "The ID of the channel where suggestions will be sent."
-}
-```
-
 # 📜 How It Works
 ### Slash Commands
 /suggest create <suggestion>: Creates a new suggestion in the specified channel.
