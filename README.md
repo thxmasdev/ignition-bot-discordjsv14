@@ -43,22 +43,22 @@ Create a `config.json` file in the root directory with the following structure:
 
 # 📜 How It Works
 ### Slash Commands
-/suggest create [suggestion]: Creates a new suggestion in the specified channel.
-
-Edit Embed
-/suggest accept [message_id]: Marks a suggestion as accepted and updates the message.
-/suggest deny [message_id]: Marks a suggestion as denied and updates the message.
+- `/suggest create <suggestion>`: Creates a new suggestion in the specified channel.
+- `/suggest accept <message_id>`: Marks a suggestion as accepted and updates the message.
+- `/suggest deny <message_id>`: Marks a suggestion as denied and updates the message.
 
 ### Reactions and Updates
+- **When a suggestion is created**: 
+  - It can be reacted to with 👍 and 👎.
 
-When a suggestion is created, it can be reacted to with 👍 and 👎.
-When a suggestion is accepted:
-- The embed title is updated to "Sugerencia Aceptada".
-- The message reactions are cleared.
-- A ❤️ reaction is added to indicate acceptance.
-When a suggestion is denied:
-- The embed title is updated to "Sugerencia Denegada".
-- All reactions are cleared.
+- **When a suggestion is accepted**:
+  - The embed title is updated to "Sugerencia Aceptada".
+  - The message reactions are cleared.
+  - A ❤️ reaction is added to indicate acceptance.
+
+- **When a suggestion is denied**:
+  - The embed title is updated to "Sugerencia Denegada".
+  - All reactions are cleared.
 
 ### Cooldown System
 Users can only submit a suggestion every 30 minutes. If a user tries to submit more frequently, they will be informed of the remaining time to wait.
