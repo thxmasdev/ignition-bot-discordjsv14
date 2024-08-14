@@ -27,8 +27,8 @@ Create a `config.json` file in the root directory with the following structure:
 
 1. **Clone the Repository**
     ```bash
-    git clone https://github.com/thxmasdev/suggestion-bot-discord.js
-    cd your-repository
+    git clone https://github.com/thxmasdev/suggestion-discord-botjs
+    cd suggestion-discord-botjs
     ```
 
 2. **Install Dependencies**
