@@ -1,3 +1,12 @@
+/*
+*
+*   Project: Ignition BOT
+*   Developer: Thomàs
+*   Contributors Ideas: TimeUnit
+*   Date: 20/08/2024
+*
+*/
+
 const { Client, GatewayIntentBits, Partials, Collection, REST, Routes } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
@@ -18,14 +27,19 @@ const client = new Client({
 
 client.commands = new Collection();
 
-const commandsPath = path.join(__dirname, 'commands');
-const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
-
-for (const file of commandFiles) {
-    const filePath = path.join(commandsPath, file);
-    const command = require(filePath);
-    client.commands.set(command.data.name, command);
+const loadCommands = (dir) => {
+    const files = fs.readdirSync(dir, { withFileTypes: true });
+    for (const file of files) {
+        if (file.isDirectory()) {
+            loadCommands(path.join(dir, file.name));
+        } else if (file.name.endsWith(".js")) {
+            const command = require(path.join(dir, file.name));
+            client.commands.set(command.data.name, command);
+        }
+    }
 }
+
+loadCommands(path.join(__dirname, 'commands'));
 
 const eventsPath = path.join(__dirname, 'events');
 const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
@@ -44,13 +58,13 @@ const rest = new REST({ version: '10' }).setToken(config.token);
 
 (async () => {
     try {
-        console.log('Iniciando la actualización de comandos de slash.');
+        console.log('\x1b[31mInitiating the slash command update...\x1b[0m');
 
         await rest.put(Routes.applicationGuildCommands(config.clientId, config.guildId), {
             body: client.commands.map(command => command.data.toJSON()),
         });
 
-        console.log('Comandos de slash actualizados.');
+        console.log('\x1b[32mUpdated slash commands.\x1b[0m');
     } catch (error) {
         console.error(error);
     }

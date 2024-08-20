@@ -1,5 +1,5 @@
 {
-    "name": "suggestion-botv14",
+    "name": "ignition-bot-discord.jsv14",
     "version": "1.0.0 BETA",
     "main": "index.js",
     "scripts": {
@@ -7,8 +7,8 @@
     },
     "keywords": [],
     "author": "thxmasdev - Thomas Paz",
-    "license": "ISC",
-    "description": "¡Un bot de sugerencias!",
+    "license": "MIT",
+    "description": "¡Un bot multifuncion!",
     "dependencies": {
       "discord.js": "^14.15.3"
     }

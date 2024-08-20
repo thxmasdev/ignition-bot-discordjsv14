@@ -1,13 +1,19 @@
-# Suggestion Bot
+<p>
+    <img src="https://i.imgur.com/LGH81EP.jpeg" height="240"/> 
+</p>
 
-A Discord bot built with Node.js and `discord.js` for managing suggestions. It features slash commands for creating suggestions and includes a cooldown system to prevent spam.
+# Ignition Bot
+
+A Discord bot built with Node.js and `discord.js` for managing temporary announcements and moderation. It features slash commands for creating temporary announcements.
 
 ## 💻 Technologies Used
 
 <p align="center">
-    <img src="https://img.shields.io/badge/-JavaScript-F7DF1C?style=for-the-badge&logo=javascript&logoColor=black" height="40"/>&nbsp;
-    <img src="https://img.shields.io/badge/-Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" height="40"/>&nbsp;
-    <img src="https://img.shields.io/badge/-discord.js-7289DA?style=for-the-badge&logo=discord&logoColor=white" height="40"/>&nbsp;
+    <img src="https://img.shields.io/badge/-JavaScript-F7DF1C?style=for-the-badge&logo=javascript&logoColor=black" height="40"/> 
+    <img src="https://img.shields.io/badge/-Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" height="40"/> 
+    <img src="https://img.shields.io/badge/-discord.js-7289DA?style=for-the-badge&logo=discord&logoColor=white" height="40"/> 
+    <img src="https://img.shields.io/badge/-JSON-000000?style=for-the-badge&logo=json&logoColor=white" height="40"/>&nbsp;
+</p>
 </p>
 
 ## 🔧 Configuration
@@ -18,8 +24,7 @@ Create a `config.json` file in the root directory with the following structure:
 {
     "token": "The bot's token from the Discord Developer Portal.",
     "clientId": "The bot's client ID for registering slash commands.",
-    "guildId": "The ID of the Discord server where the bot will operate.",
-    "channelId": "The ID of the channel where suggestions will be sent."
+    "guildId": "The ID of the Discord server where the bot will operate."
 }
 ```
 
@@ -27,8 +32,8 @@ Create a `config.json` file in the root directory with the following structure:
 
 1. **Clone the Repository**
     ```bash
-    git clone https://github.com/thxmasdev/suggestion-discord-botjs
-    cd suggestion-discord-botjs
+    git clone https://github.com/thxmasdev/ignition-bot-discordjsv14
+    cd ignition-bot-discordjsv14
     ```
 
 2. **Install Dependencies**
@@ -36,33 +41,20 @@ Create a `config.json` file in the root directory with the following structure:
     npm install
     ```
 
-2. **Start Bot**
+3. **Start Bot**
     ```bash
     node index.js
     ```
 
 # 📜 How It Works
 ### Slash Commands
-- `/suggest create <suggestion>`: Creates a new suggestion in the specified channel.
-- `/suggest accept <message_id>`: Marks a suggestion as accepted and updates the message.
-- `/suggest deny <message_id>`: Marks a suggestion as denied and updates the message.
+- `/tempannounce <message> <duration>`: Creates a temporary announcement that deletes itself after the specified duration.
+- `/embedtempannounce <title> <description> <duration>`: Creates a temporary announcement with an embed that deletes itself after the specified duration.
+- `/ban <user> <reason>`: Bans a user from the server.
+- `/kick <user> <reason>`: Kicks a user from the server.
+- `/purge <amount> [user]`: Deletes a specified number of messages in the current channel. If a user is specified, deletes messages only from that user.
+- `/unban <userid> <reason>`: Unbans a user from the server.
 - `/help` & `/botinfo`: Shows basic information about the bot.
-
-### Reactions and Updates
-- **When a suggestion is created**: 
-  - It can be reacted to with 👍 and 👎.
-
-- **When a suggestion is accepted**:
-  - The embed title is updated to "Sugerencia Aceptada".
-  - The message reactions are cleared.
-  - A ❤️ reaction is added to indicate acceptance.
-
-- **When a suggestion is denied**:
-  - The embed title is updated to "Sugerencia Denegada".
-  - All reactions are cleared.
-
-### Cooldown System
-Users can only submit a suggestion every 30 minutes. If a user tries to submit more frequently, they will be informed of the remaining time to wait.
 
 ## 🔗 Connect with Me
 
@@ -77,6 +69,6 @@ Users can only submit a suggestion every 30 minutes. If a user tries to submit m
     <a href="https://discord.gg/yDqmpM3XtM"><img src="https://img.shields.io/badge/-Join%20My%20Discord%20Server-7289DA?style=for-the-badge&logo=discord&logoColor=white" height="40"/></a>
 </p>
 
-## 👤 Creator - Credit`s
+## 👤 Creator - Credits
 
 - **Developer:** thxmasdev

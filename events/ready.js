@@ -2,6 +2,15 @@ module.exports = {
     name: 'ready',
     once: true,
     execute(client) {
-        console.log(`Listo para ver sugerencias en ${client.guilds.cache.size} servidores.`);
+      console.log(`\x1b[31m
+        ██╗███╗   ██╗ ██████╗ ██╗████████╗██╗ ██████╗ ███╗   ██╗
+        ██║████╗  ██║██╔════╝ ██║╚══██╔══╝██║██╔═══██╗████╗  ██║
+        ██║██╔██╗ ██║██║  ███╗██║   ██║   ██║██║   ██║██╔██╗ ██║
+        ██║██║╚██╗██║██║   ██║██║   ██║   ██║██║   ██║██║╚██╗██║
+        ██║██║ ╚████║╚██████╔╝██║   ██║   ██║╚██████╔╝██║ ╚████║
+        ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+      \x1b[0m`);
+      console.log(`\x1b[32m¡Ready! connected as ${client.user.tag}.\x1b[0m`);
     },
-};
+  };
+  
