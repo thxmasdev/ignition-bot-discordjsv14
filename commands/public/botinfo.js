@@ -1,4 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const config = require('../../config.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -6,8 +7,6 @@ module.exports = {
         .setDescription('Displays basic information about the bot.'),
 
     async execute(interaction, client) {
-
-        const botAvatarURL = interaction.client.user.displayAvatarURL();
 
         const BotInfo = new EmbedBuilder()
             .setTitle('Bot Information')
@@ -37,7 +36,7 @@ module.exports = {
                 },
             )
 
-            .setFooter({ text: 'Developed by thxmasdev', iconURL: botAvatarURL })
+            .setFooter({ text: config.embedFooter.text, iconURL: config.embedFooter.icon_url })
             .setThumbnail(client.user.displayAvatarURL());
 
         await interaction.reply({ embeds: [BotInfo] });

@@ -1,4 +1,5 @@
-const { SlashCommandBuilder, PermissionsBitField, EmbedBuilder } = require('discord.js')
+const { SlashCommandBuilder, PermissionsBitField, EmbedBuilder } = require('discord.js');
+const config = require(`../../config.json`);
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -28,8 +29,6 @@ module.exports = {
             try {
                 await member.kick(reason);
 
-                const botAvatarURL = interaction.client.user.displayAvatarURL();
-
                 const embedkick = new EmbedBuilder()
                     .setTitle('Moderation')
                     .setColor(0xFAE900)
@@ -55,7 +54,7 @@ module.exports = {
                             inline: false
                         }
                     )
-                    .setFooter({ text: 'Developed by thxmasdev', iconURL: botAvatarURL })
+                    .setFooter({ text: config.embedFooter.text, iconURL: config.embedFooter.icon_url })
                     .setThumbnail(client.user.displayAvatarURL());
 
                 await interaction.reply({ embeds: [embedkick] });

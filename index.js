@@ -7,7 +7,7 @@
 *
 */
 
-const { Client, GatewayIntentBits, Partials, Collection, REST, Routes } = require('discord.js');
+const { Client, GatewayIntentBits, Partials, Collection, REST, Routes, ActivityType } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
 const config = require('./config.json');
@@ -69,5 +69,28 @@ const rest = new REST({ version: '10' }).setToken(config.token);
         console.error(error);
     }
 })();
+
+const activities = [
+    { name: 'https://github.com/thxmasdev', type: ActivityType.Playing },
+    { name: 'https://github.com/thxmasdev', type: ActivityType.Watching },
+    { name: 'https://github.com/thxmasdev', type: ActivityType.Competing },
+];
+
+let activityIndex = 0;
+
+function updateActivity() {
+    const activity = activities[activityIndex];
+    client.user.setPresence({
+        status: 'online',
+        activities: [activity],
+    });
+
+    activityIndex = (activityIndex + 1) % activities.length;
+}
+
+client.once('ready', () => {
+    updateActivity();
+    setInterval(updateActivity, 10000);
+});
 
 client.login(config.token);

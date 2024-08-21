@@ -1,4 +1,5 @@
 const { SlashCommandBuilder, PermissionsBitField, EmbedBuilder } = require('discord.js');
+const config = require('../../config.json')
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -27,8 +28,6 @@ module.exports = {
             try {
                 await member.ban({ reason });
 
-                const botAvatarURL = interaction.client.user.displayAvatarURL();
-
                 const embedban = new EmbedBuilder()
                     .setTitle('Moderation')
                     .setColor(0xFA0000)
@@ -54,7 +53,7 @@ module.exports = {
                             inline: false
                         }
                     )
-                    .setFooter({ text: 'Developed by thxmasdev', iconURL: botAvatarURL })
+                    .setFooter({ text: config.embedFooter.text, iconURL: config.embedFooter.icon_url })
                     .setThumbnail(client.user.displayAvatarURL());
 
                 await interaction.reply({ embeds: [embedban] });

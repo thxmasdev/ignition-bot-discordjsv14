@@ -4,7 +4,7 @@
 
 # Ignition Bot
 
-A Discord bot built with Node.js and `discord.js` for managing temporary announcements and moderation. It features slash commands for creating temporary announcements.
+A Discord bot made with Node.js and 'discord.js v14' to manage scheduled and normal ads in embed and text format, autorole management, moderation system, automatic moderation with blacklisted words and suggestion system.
 
 ## 💻 Technologies Used
 
@@ -22,9 +22,14 @@ Create a `config.json` file in the root directory with the following structure:
 
 ```json
 {
-    "token": "The bot's token from the Discord Developer Portal.",
-    "clientId": "The bot's client ID for registering slash commands.",
-    "guildId": "The ID of the Discord server where the bot will operate."
+  "token": "TOKEN_BOT",
+  "clientId": "BOT_CLIENT_ID",
+  "guildId": "DISCORD_SERVER_ID",
+  "suggestionsChannelId": "SUGGESTION_CHANNEL_ID",
+  "embedFooter": {
+    "text": "TEXT_FOOTER",
+    "icon_url": "URL_IMAGE"
+  }
 }
 ```
 
@@ -48,13 +53,42 @@ Create a `config.json` file in the root directory with the following structure:
 
 # 📜 How It Works
 ### Slash Commands
-- `/tempannounce <message> <duration>`: Creates a temporary announcement that deletes itself after the specified duration.
-- `/embedtempannounce <title> <description> <duration>`: Creates a temporary announcement with an embed that deletes itself after the specified duration.
+
+#### Moderation Commands
 - `/ban <user> <reason>`: Bans a user from the server.
 - `/kick <user> <reason>`: Kicks a user from the server.
 - `/purge <amount> [user]`: Deletes a specified number of messages in the current channel. If a user is specified, deletes messages only from that user.
 - `/unban <userid> <reason>`: Unbans a user from the server.
-- `/help` & `/botinfo`: Shows basic information about the bot.
+- `/warn <user> <reason>`: Warn a user.
+- `/unwarn <user>`: Remove a warning from a user.
+- `/warnlist <user>`: List all warnings for a user.
+
+#### Announcement Commands
+- `/tempannounce <channel> <message> <duration>`: Creates a temporary announcement that deletes itself after the specified duration.
+- `/embedtempannounce <title> <description> <duration> <embed-color> <footer> <image>`: Creates a temporary announcement with an embed that deletes itself after the specified duration.
+- `/announce <channel> <message>`: Create Ad normal.
+- `/embedannounce <channel> <title> <description> <embed-color> <footer> <image>`: Create Ad embed normal.
+
+#### Word Management Commands
+- `/word-blacklist add <word>`: Adds a word to the blacklist.
+- `/word-blacklist remove <word>`: Removes a word from the blacklist.
+- `/word-blacklist list`: Lists all words in the word blacklist.
+
+#### Role Commands
+- `/autoroles-create <category_name>`: Create a new autorole category.
+- `/autoroles-add <category> <role> <emoji>`: Add a role to an autorole category.
+- `/autoroles-remove <messageID> <role>`: Remove a role from an autorole category.
+- `/autoroles-send <category> <description> <channel> <embeD_color>`: Send an autorole embed.
+- `/autoroles-categories / <category>`: Lists all configured reaction roles.
+
+#### Information Commands
+- `/help`: Shows basic information about the bot.
+- `/botinfo`: Shows detailed information about the bot.
+
+#### Suggestion Commands
+- `/suggest <suggestion>`: Submits a suggestion for the server.
+- `/suggestion accept <message_id>`: Accept suggestion.
+- `/suggestion deny <message_id>`: Deny suggestion.
 
 ## 🔗 Connect with Me
 
